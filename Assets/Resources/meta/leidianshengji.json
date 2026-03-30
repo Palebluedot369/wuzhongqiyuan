@@ -1,0 +1,25 @@
+{
+"leidianshengji":
+[
+  {
+    "ID": 1,
+    "Name": "混沌",
+    "Type": "add",
+    "Cost_Resource": "A",
+    "Cost_firsttime": 10,
+    "Cost_Multiplier": 10,
+    "Effect_Base": 1,
+    "Effect_Multiplier": 1
+  },
+  {
+    "ID": 2,
+    "Name": "物质",
+    "Type": "percent",
+    "Cost_Resource": "B",
+    "Cost_firsttime": 10,
+    "Cost_Multiplier": 10,
+    "Effect_Base": 0.1,
+    "Effect_Multiplier": 1
+  }
+]
+}

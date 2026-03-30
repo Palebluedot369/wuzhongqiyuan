@@ -1,0 +1,82 @@
+{
+"chenaidatas":
+[
+  {
+    "ID": 1,
+    "Name": "细沙",
+    "Unlock_A_Required": 1000,
+    "Production_Target": "C",
+    "Production_Rate": 0.05
+  },
+  {
+    "ID": 2,
+    "Name": "石块",
+    "Unlock_A_Required": 100000,
+    "Production_Target": "C",
+    "Production_Rate": 3
+  },
+  {
+    "ID": 3,
+    "Name": "岩石",
+    "Unlock_A_Required": 10000000,
+    "Production_Target": "C",
+    "Production_Rate": 180
+  },
+  {
+    "ID": 4,
+    "Name": "彗星",
+    "Unlock_A_Required": 1000000000,
+    "Production_Target": "C",
+    "Production_Rate": 10800
+  },
+  {
+    "ID": 5,
+    "Name": "卫星",
+    "Unlock_A_Required": 100000000000.0,
+    "Production_Target": "C",
+    "Production_Rate": 648000
+  },
+  {
+    "ID": 6,
+    "Name": "行星",
+    "Unlock_A_Required": 10000000000000.0,
+    "Production_Target": "C",
+    "Production_Rate": 38880000
+  },
+  {
+    "ID": 7,
+    "Name": "恒星",
+    "Unlock_A_Required": 1E+15,
+    "Production_Target": "C",
+    "Production_Rate": 2332800000.0
+  },
+  {
+    "ID": 8,
+    "Name": "星系",
+    "Unlock_A_Required": 1E+17,
+    "Production_Target": "C",
+    "Production_Rate": 139968000000.0
+  },
+  {
+    "ID": 9,
+    "Name": "星系团",
+    "Unlock_A_Required": 1E+19,
+    "Production_Target": "C",
+    "Production_Rate": 8398080000000.0
+  },
+  {
+    "ID": 10,
+    "Name": "超星系团",
+    "Unlock_A_Required": 1E+21,
+    "Production_Target": "C",
+    "Production_Rate": 503884800000000.0
+  },
+  {
+    "ID": 11,
+    "Name": "宇宙",
+    "Unlock_A_Required": 1E+23,
+    "Production_Target": "C",
+    "Production_Rate": 3.0233088E+16
+  }
+]
+}

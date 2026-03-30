@@ -1,0 +1,82 @@
+{
+"chenaishengji":
+[
+  {
+    "ID": 1,
+    "Name": "细沙",
+    "Upgrade_ACount": 1E+32,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 2,
+    "Name": "石块",
+    "Upgrade_ACount": 1E+34,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 3,
+    "Name": "岩石",
+    "Upgrade_ACount": 1E+36,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 4,
+    "Name": "彗星",
+    "Upgrade_ACount": 1E+38,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 5,
+    "Name": "卫星",
+    "Upgrade_ACount": 1E+40,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 6,
+    "Name": "行星",
+    "Upgrade_ACount": 1E+42,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 7,
+    "Name": "恒星",
+    "Upgrade_ACount": 1E+44,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 8,
+    "Name": "星系",
+    "Upgrade_ACount": 1E+46,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 9,
+    "Name": "星系团",
+    "Upgrade_ACount": 1E+48,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 10,
+    "Name": "超星系团",
+    "Upgrade_ACount": 1E+50,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  },
+  {
+    "ID": 11,
+    "Name": "宇宙",
+    "Upgrade_ACount": 1E+52,
+    "Upgrade_Multiplier": 1E+20,
+    "Upgrade_EffectMultiplier": 1E+20
+  }
+]
+}

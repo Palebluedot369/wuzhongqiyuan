@@ -1,0 +1,152 @@
+{
+"lizishengji":
+[
+  {
+    "ID": 1,
+    "Name": "原子核",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 2,
+    "Name": "原子",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 3,
+    "Name": "DNA",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 4,
+    "Name": "支原体",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 5,
+    "Name": "蓝藻",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 6,
+    "Name": "古菌",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 7,
+    "Name": "孢子",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 8,
+    "Name": "草履虫",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 9,
+    "Name": "珊瑚虫",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 10,
+    "Name": "文昌鱼",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 11,
+    "Name": "盾皮鱼",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 12,
+    "Name": "大鲵",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 13,
+    "Name": "巨鳄",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 14,
+    "Name": "甲龙",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 15,
+    "Name": "始暴龙",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 16,
+    "Name": "霸王龙",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 17,
+    "Name": "生化兽",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 18,
+    "Name": "机甲兽",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 19,
+    "Name": "毁灭者",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 20,
+    "Name": "清理者",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  },
+  {
+    "ID": 21,
+    "Name": "母体",
+    "Upgrade_Base_Cost": 16,
+    "Upgrade_Multiplier": 4,
+    "Upgrade_EffectMultiplier": 2
+  }
+]
+}

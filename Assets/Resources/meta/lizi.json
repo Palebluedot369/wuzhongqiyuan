@@ -1,0 +1,210 @@
+{
+  "lizidatas": [
+    {
+      "ID": 1,
+      "Name": "原子核",
+      "Unlock_A_Required": 10,
+      "Unlock_Precursor_ID": 0,
+      "Unlock_Precursor_Required": 10,
+      "Production_Target": 0,
+      "Production_Rate": 1
+    },
+    {
+      "ID": 2,
+      "Name": "原子",
+      "Unlock_A_Required": 100,
+      "Unlock_Precursor_ID": 1,
+      "Unlock_Precursor_Required": 10,
+      "Production_Target": 1,
+      "Production_Rate": 2
+    },
+    {
+      "ID": 3,
+      "Name": "DNA",
+      "Unlock_A_Required": 1000,
+      "Unlock_Precursor_ID": 2,
+      "Unlock_Precursor_Required": 100,
+      "Production_Target": 2,
+      "Production_Rate": 3
+    },
+    {
+      "ID": 4,
+      "Name": "支原体",
+      "Unlock_A_Required": 10000,
+      "Unlock_Precursor_ID": 3,
+      "Unlock_Precursor_Required": 1000,
+      "Production_Target": 3,
+      "Production_Rate": 4
+    },
+    {
+      "ID": 5,
+      "Name": "蓝藻",
+      "Unlock_A_Required": 100000,
+      "Unlock_Precursor_ID": 4,
+      "Unlock_Precursor_Required": 10000,
+      "Production_Target": 4,
+      "Production_Rate": 5
+    },
+    {
+      "ID": 6,
+      "Name": "古菌",
+      "Unlock_A_Required": 1000000,
+      "Unlock_Precursor_ID": 5,
+      "Unlock_Precursor_Required": 100000,
+      "Production_Target": 5,
+      "Production_Rate": 6
+    },
+    {
+      "ID": 7,
+      "Name": "孢子",
+      "Unlock_A_Required": 10000000,
+      "Unlock_Precursor_ID": 6,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 6,
+      "Production_Rate": 7
+    },
+    {
+      "ID": 8,
+      "Name": "草履虫",
+      "Unlock_A_Required": 100000000,
+      "Unlock_Precursor_ID": 7,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 7,
+      "Production_Rate": 8
+    },
+    {
+      "ID": 9,
+      "Name": "珊瑚虫",
+      "Unlock_A_Required": 1000000000,
+      "Unlock_Precursor_ID": 8,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 8,
+      "Production_Rate": 9
+    },
+    {
+      "ID": 10,
+      "Name": "文昌鱼",
+      "Unlock_A_Required": 10000000000.0,
+      "Unlock_Precursor_ID": 9,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 9,
+      "Production_Rate": 10
+    },
+    {
+      "ID": 11,
+      "Name": "盾皮鱼",
+      "Unlock_A_Required": 100000000000.0,
+      "Unlock_Precursor_ID": 10,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 10,
+      "Production_Rate": 11
+    },
+    {
+      "ID": 12,
+      "Name": "大鲵",
+      "Unlock_A_Required": 1000000000000.0,
+      "Unlock_Precursor_ID": 11,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 11,
+      "Production_Rate": 12
+    },
+    {
+      "ID": 13,
+      "Name": "巨鳄",
+      "Unlock_A_Required": 10000000000000.0,
+      "Unlock_Precursor_ID": 12,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 12,
+      "Production_Rate": 13
+    },
+    {
+      "ID": 14,
+      "Name": "甲龙",
+      "Unlock_A_Required": 100000000000000.0,
+      "Unlock_Precursor_ID": 13,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 13,
+      "Production_Rate": 14
+    },
+    {
+      "ID": 15,
+      "Name": "始暴龙",
+      "Unlock_A_Required": 1E+15,
+      "Unlock_Precursor_ID": 14,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 14,
+      "Production_Rate": 15
+    },
+    {
+      "ID": 16,
+      "Name": "霸王龙",
+      "Unlock_A_Required": 1E+16,
+      "Unlock_Precursor_ID": 15,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 15,
+      "Production_Rate": 16
+    },
+    {
+      "ID": 17,
+      "Name": "生化兽",
+      "Unlock_A_Required": 1E+17,
+      "Unlock_Precursor_ID": 16,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 16,
+      "Production_Rate": 17
+    },
+    {
+      "ID": 18,
+      "Name": "机甲兽",
+      "Unlock_A_Required": 1E+18,
+      "Unlock_Precursor_ID": 17,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 17,
+      "Production_Rate": 18
+    },
+    {
+      "ID": 19,
+      "Name": "毁灭者",
+      "Unlock_A_Required": 1E+19,
+      "Unlock_Precursor_ID": 18,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 18,
+      "Production_Rate": 19
+    },
+    {
+      "ID": 20,
+      "Name": "清理者",
+      "Unlock_A_Required": 1E+20,
+      "Unlock_Precursor_ID": 19,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 19,
+      "Production_Rate": 20
+    },
+    {
+      "ID": 21,
+      "Name": "母体",
+      "Unlock_A_Required": 1E+21,
+      "Unlock_Precursor_ID": 20,
+      "Unlock_Precursor_Required": 1000000,
+      "Production_Target": 20,
+      "Production_Rate": 21
+    }
+  ],
+  "备注": [
+    {
+      "Unlock_Precursor_Required": "前驱物种的 ID（0 表示无）"
+    },
+    {
+      "Unlock_Precursor_Required": "Production_Target"
+    },
+    {
+      "Unlock_Precursor_Required": "生产的目标资源 ID（如 \"A\" 表示粒子，或上一级物种的 ID）"
+    },
+    {
+      "Unlock_Precursor_Required": "Production_Rate"
+    },
+    {
+      "Unlock_Precursor_Required": "基础生产效率（每秒产量）"
+    }
+  ]
+}

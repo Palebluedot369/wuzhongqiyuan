@@ -1,0 +1,126 @@
+{
+"chenaihecheng":
+[
+  {
+    "ID": 1,
+    "Name": "细沙",
+    "Craft_A_Cost": 1000,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 2,
+    "Name": "石块",
+    "Craft_A_Cost": 100000,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 3,
+    "Name": "岩石",
+    "Craft_A_Cost": 10000000,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 4,
+    "Name": "彗星",
+    "Craft_A_Cost": 1000000000,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 5,
+    "Name": "卫星",
+    "Craft_A_Cost": 100000000000.0,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 6,
+    "Name": "行星",
+    "Craft_A_Cost": 10000000000000.0,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 7,
+    "Name": "恒星",
+    "Craft_A_Cost": 1E+15,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 8,
+    "Name": "星系",
+    "Craft_A_Cost": 1E+17,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 9,
+    "Name": "星系团",
+    "Craft_A_Cost": 1E+19,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 10,
+    "Name": "超星系团",
+    "Craft_A_Cost": 1E+21,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  },
+  {
+    "ID": 11,
+    "Name": "宇宙",
+    "Craft_A_Cost": 1E+23,
+    "Craft_B_Cost": 1,
+    "Craft_Output": 1,
+    "CraftLevelUp_Consume_Resource": "B",
+    "CraftLevelUp_BaseCount": 5,
+    "CraftLevelUp_Multiplier": 5,
+    "CraftLevelUp_EffectMultiplier": 2
+  }
+]
+}

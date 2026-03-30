@@ -1,0 +1,45 @@
+{
+"basedatas":
+[
+  {
+    "ID": 1,
+    "ResourceID": "A",
+    "Name": "粒子",
+    "InitialAmount": 10,
+    "UnlockCondition_Resource": " ",
+    "UnlockCondition_Count": " "
+  },
+  {
+    "ID": 2,
+    "ResourceID": "B",
+    "Name": "雷电",
+    "InitialAmount": 0,
+    "UnlockCondition_Resource": "A",
+    "UnlockCondition_Amount": 10
+  },
+  {
+    "ID": 3,
+    "ResourceID": "C",
+    "Name": "尘埃",
+    "InitialAmount": 0,
+    "UnlockCondition_Resource": "A",
+    "UnlockCondition_Amount": 1000
+  },
+  {
+    "ID": 4,
+    "ResourceID": "D",
+    "Name": "智慧",
+    "InitialAmount": 0,
+    "UnlockCondition_Resource": "A",
+    "UnlockCondition_Amount": 1E+25
+  },
+  {
+    "ID": 5,
+    "ResourceID": "E",
+    "Name": "暗物质",
+    "InitialAmount": 0,
+    "UnlockCondition_Resource": "A",
+    "UnlockCondition_Amount": 1E+25
+  }
+]
+}
