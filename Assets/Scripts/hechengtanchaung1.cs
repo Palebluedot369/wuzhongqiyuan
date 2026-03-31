@@ -57,7 +57,7 @@ public class hechengtanchaung1 : MonoBehaviour
         //获取前置ID
         qianzhiID = peifang.Craft_Precursor_ID;
         //配方数据传给显示组件
-        display.SetRecipe(peifang, qianzhiID );
+        display.SetRecipe(hechengID,peifang, qianzhiID );
      
 
     }

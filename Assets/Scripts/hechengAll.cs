@@ -7,25 +7,73 @@ using System;
 
 public class hechengAll : MonoBehaviour
 {
+    [Header("小弹窗预制体")]
+    public GameObject hechengshengjiPrefab;
+    [Header("父级Canvas")]
+    public  Transform canvasParent;
+    [Header("升级按钮")]
+    public Button hechengshengji;
+
+
+
     public Slider amountSlider;
     public TextMeshProUGUI hechengNum;
     public TextMeshProUGUI xiaohaoNum;
     private lizihechengData peifang;
     private int qianzhiID;
+    private int liziID;
 
     private void Start()
     {
         if(amountSlider  != null)
         {
-            amountSlider.onValueChanged.AddListener(OnSliderValueChange);//添加监听滑动条事件
-            
+            amountSlider.onValueChanged.AddListener(OnSliderValueChange);//添加监听滑动条事件           
+        }
+        hechengshengji.onClick.AddListener(Openshengji);
+
+        if (canvasParent == null)
+        {
+            canvasParent = FindObjectOfType<Canvas>().transform;
+            if (canvasParent == null)
+                Debug.LogError("场景中没有找到 Canvas");
+        }
+
+    }
+
+    void Openshengji()
+    {
+        if(hechengshengjiPrefab == null || canvasParent == null)
+        {
+            Debug.LogError("小弹窗预制体或父级 Canvas 未设置");
+            return;
+        }
+
+        GameObject tanchuang = Instantiate(hechengshengjiPrefab, canvasParent);
+        tanchuang.transform.SetAsLastSibling();
+
+        //获取升级弹窗上的脚本组件
+        var shengjiCtrl = tanchuang.GetComponent<hechengshengji>();
+        if(shengjiCtrl != null)
+        {
+            //传递当前物种ID和配方
+            shengjiCtrl.SetData(liziID, peifang);
+
+        }
+        else
+        {
+            Debug.LogError("小弹窗预制体缺少 hechengshengji 组件");
+            Destroy(tanchuang);
         }
     }
 
-    public void SetRecipe(lizihechengData recipe, int precursorId)
+
+
+    public void SetRecipe(int id,lizihechengData recipe, int precursorId)
     {
+        liziID = id;
         peifang = recipe;
         qianzhiID = precursorId;
+
         if (amountSlider != null)
         {
             amountSlider.value = 0.5f;

@@ -86,11 +86,28 @@ public class GameResourceManager : MonoBehaviour
         else
         {
             var list = JsonUtility.FromJson<liziBaseList>(lizidatajson.text);
-            foreach (var data in list.lizidatas)
+            if (list?.lizidatas != null)
             {
-                lizidataDict[data.ID] = data;
+                foreach (var data in list.lizidatas)
+                    lizidataDict[data.ID] = data;
+                Debug.Log($"成功加载 {lizidataDict.Count} 个粒子物种基础数据");
             }
+            else
+            {
+                Debug.LogError("解析 lizi.json 失败");
+            }
+
+
+            //foreach (var data in list.lizidatas)
+            //{
+            //    lizidataDict[data.ID] = data;
+            //}
         }
+
+
+
+
+
 
         //加载粒子升级数据
         TextAsset lizishengjidatajson = Resources.Load<TextAsset>("meta/lizishengji");
@@ -362,7 +379,15 @@ public class GameResourceManager : MonoBehaviour
     public void setlizishengjiLevel(int id,int level) => lizishengjiLevel[id] = level;//粒子升级等级修改方法
     public int getlizihechengLevel(int id) => lizihechengLevel[id];//获取粒子合成等级
     public void setlizihechengLevel(int id,int level) => lizihechengLevel[id] = level;//粒子合成等级修改方法
-    public lizibaseData getlizibaseData(int id) => lizidataDict.ContainsKey(id) ? lizidataDict[id] : null;//获取粒子物种基础配置数据
+    public lizibaseData getlizibaseData(int id) //获取粒子物种基础配置数据
+    {
+        if (lizidataDict == null)
+        {
+            Debug.LogError("lizidataDict 未初始化！请确保 LoadAllData 已执行。");
+            return null;
+        }
+        return lizidataDict.ContainsKey(id) ? lizidataDict[id] : null;
+    }  
 
 
 
@@ -505,6 +530,7 @@ public class GameResourceManager : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         LoadAllData();
         InitFromData();
         StartCoroutine(ShengchanCoroutine());
