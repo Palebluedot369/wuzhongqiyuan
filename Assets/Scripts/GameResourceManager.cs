@@ -195,19 +195,23 @@ public class GameResourceManager : MonoBehaviour
         {
             if(lizidataDict.TryGetValue(i,out var data))
             {
-                lizishengchanRates[i] = data.Production_Rate;
+                lizishengchanRates[i] = data.Production_Rate;    //赋值粒子物种基础生产效率            
             }
-            lizihechengMultiplier[i] = 1;
+            lizihechengMultiplier[i] = 1;//赋值粒子物种基础合成效率
         }
+
+
+
+
 
         //初始化尘埃物种基础生产和合成效率
         for(int i = 1;i <= 11; i++)
         {
             if(chenaidataDict.TryGetValue(i,out var data))
             {
-                chenaishengchanRates[i] = data.Production_Rate;
+                chenaishengchanRates[i] = data.Production_Rate;//赋值尘埃物种基础生产效率     
             }
-            chenaihechengMultiplier[i] = 1;
+            chenaihechengMultiplier[i] = 1;//赋值尘埃物种基础合成效率
         }        
     }
 

@@ -14,7 +14,7 @@ public class hechengAll : MonoBehaviour
     [Header("升级按钮")]
     public Button hechengshengji;
 
-
+    private GameResourceManager resourceManager;
 
     public Slider amountSlider;
     public TextMeshProUGUI hechengNum;
@@ -25,6 +25,8 @@ public class hechengAll : MonoBehaviour
 
     private void Start()
     {
+        resourceManager = GameResourceManager.Instance;
+
         if(amountSlider  != null)
         {
             amountSlider.onValueChanged.AddListener(OnSliderValueChange);//添加监听滑动条事件           
@@ -149,5 +151,42 @@ public class hechengAll : MonoBehaviour
         else return number.ToString("F0");
     }
 
+
+    //合成按钮功能方法
+    public void lizihechengClick()
+    {
+        //获取当前合成数量
+        string numText = hechengNum.text.Replace("合成：", "").Trim();
+        if(!double.TryParse(numText,out double hechengCount)){
+            Debug.LogError("无法解析合成数量");
+            return;
+        }
+        //调用合成方法
+        bool hechengsuccess = hechengManager.Instance.lizihecheng(liziID, hechengCount);
+        
+        
+        if (hechengsuccess)
+        {
+            
+            //resourceManager = GameResourceManager.Instance;
+            //resourceManager.liziwuzhongAdd(liziID,hechengCount);
+            
+            var popupRoot = GetComponentInParent<tanchaungController>();
+            if(popupRoot != null)
+            {
+                popupRoot.ClosePopup();
+            }
+            else
+                Debug.LogWarning("未找到弹窗控制器，无法自动关闭");
+        }
+        else
+        {
+            Debug.Log("合成失败，资源不足");
+        }
+    }
+
+
+
+    
 
 }

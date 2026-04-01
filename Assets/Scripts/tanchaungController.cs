@@ -19,7 +19,7 @@ public class tanchaungController : MonoBehaviour
         
     }
 
-    void ClosePopup()
+    public void ClosePopup()
     {
         Destroy(gameObject);
     }

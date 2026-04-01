@@ -1254,6 +1254,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liziname: {fileID: 359503275}
   lizinameID: 1
+--- !u!1 &399078677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399078679}
+  - component: {fileID: 399078680}
+  m_Layer: 0
+  m_Name: hechengControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &399078679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399078677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 362.48825, y: 994.3828, z: -265.23853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &399078680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399078677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e760b29ceaadd69448382899f878247c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409812637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6095,3 +6139,4 @@ SceneRoots:
   - {fileID: 1260419066}
   - {fileID: 52197138}
   - {fileID: 1351168609}
+  - {fileID: 399078679}

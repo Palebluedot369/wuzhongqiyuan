@@ -60,7 +60,8 @@ public class hechengshengji : MonoBehaviour
         peifang = peifangData;
         costliziID = peifang.CraftLevelUp_Consume_ID;
 
-        Debug.Log($"costliziID:{costliziID}");
+
+        //Debug.Log($"costliziID:{costliziID}");
 
         if(costliziID == 0)
         {
