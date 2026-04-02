@@ -5,8 +5,6 @@ using UnityEngine;
 using UnityEngine.Networking; 
 using UnityEngine.UI;
 using System;
-using System.Transactions;
-using UnityEngine.Rendering;
 
 public class GameResourceManager : MonoBehaviour
 {
@@ -14,7 +12,8 @@ public class GameResourceManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        Debug.Log("GameResourceManager Awake 执行");
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -340,7 +339,8 @@ public class GameResourceManager : MonoBehaviour
     public event Action<double> anwuzhiChange;//暗物质数量事件
     public event Action<int, double> liziwuzhongChange;//粒子物种数量事件
     public event Action<int, double> chenaiwuzhongChange;//尘埃物种数量事件
-
+    public event Action<int> OnliziUnlocked;//粒子物种解锁事件
+    public event Action<int> OnchenaiUnlocked;//尘埃物种解锁事件
 
 
     //公共方法获取GameResourcesManger内数据
@@ -350,12 +350,6 @@ public class GameResourceManager : MonoBehaviour
     public double getOtherchenainumber(int id) => chenaiSpecies[id];//根据ID获取不同尘埃物种的数量
     public double getzhihuinumber() => zhihuicount;//智慧数量
     public double getanwuzhinumber() => anwuzhicount;//暗物质数量
-    public void addlizicount(double amount) => lizicount += amount;//粒子增减方法
-    public void addchenaicount(double amount) => chenaicount += amount;//尘埃增减方法
-    public void addzhihuicount(double amount) => zhihuicount += amount;//智慧增减方法
-    public void addleidiancount(double amount) => leidiancount += amount;//雷电增减方法
-    public void addanwuzhicount(double amount) => anwuzhicount += amount;//暗物质增减方法
-    public void Addlizinumber(int id,double amount) => liziSpecies[id] += amount;//粒子物种数量增加方法
     public lizishengjiData getlizishengji(int id)//获取粒子升级配方
     {
         if (lizishengjiDict.ContainsKey(id))
@@ -393,10 +387,6 @@ public class GameResourceManager : MonoBehaviour
         return lizidataDict.ContainsKey(id) ? lizidataDict[id] : null;
     }  
 
-
-
-
-    public void Addchenainumber(int id, bool ischenai, double amount) => chenaiSpecies[id] += amount;//尘埃物种数量增加方法
     public double getchenaishengchanRate(int id) => chenaishengchanRates[id]; //获取尘埃物种生产效率
     public void setchenaishengchanRate(int id, double Rate)//尘埃生产效率修改方法
     {
@@ -539,6 +529,9 @@ public class GameResourceManager : MonoBehaviour
         InitFromData();
         StartCoroutine(ShengchanCoroutine());
         //InvokeRepeating("printlog",0,1);
+        
+
+
 
     }
 }

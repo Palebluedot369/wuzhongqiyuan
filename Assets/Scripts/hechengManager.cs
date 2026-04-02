@@ -7,7 +7,7 @@ public class hechengManager : MonoBehaviour
 {
     public static hechengManager Instance { get; private set; }
     private GameResourceManager resourceManager;
-    //粒子、尘埃物种数据字典
+    //粒子、尘埃物种合成数据字典
     private Dictionary<int, lizihechengData> lizihechengDict = new Dictionary<int, lizihechengData>();
     private Dictionary<int, chenaihechengData> chenaihechengDict = new Dictionary<int, chenaihechengData>();
 
@@ -104,7 +104,7 @@ public class hechengManager : MonoBehaviour
 
         if(peifang.Craft_Precursor_ID != 0)
         {
-            resourceManager.Addlizinumber(peifang.Craft_Precursor_ID, -peifang.Craft_Precursor_Cost * hechengcount);
+            resourceManager.liziwuzhongAdd(peifang.Craft_Precursor_ID, -peifang.Craft_Precursor_Cost * hechengcount);
 
         }
 
@@ -163,7 +163,7 @@ public class hechengManager : MonoBehaviour
         }
 
         //扣除升级消耗
-        resourceManager.Addlizinumber(xiaohaoID, -cost);
+        resourceManager.liziwuzhongAdd(xiaohaoID, -cost);
         //计算新倍率
         double newMult = resourceManager.getlizihechengMultiplier(liziID) * peifang.CraftLevelUp_EffectMultiplier;
         resourceManager.setlizihechengMultiplier(liziID, newMult);//刷新合成效率
@@ -192,7 +192,7 @@ public class hechengManager : MonoBehaviour
             return false;
         }
         //扣除升级消耗
-        resourceManager.addleidiancount(-cost);
+        resourceManager.leidianAdd(-cost);
         //计算新合成效率
         double newMult = resourceManager.getchenaihechengMultiplier(chenaiID,true) * peifang.CraftLevelUp_EffectMultiplier;
         //刷新合成效率

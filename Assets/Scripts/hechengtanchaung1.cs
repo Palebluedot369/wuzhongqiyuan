@@ -12,6 +12,7 @@ public class hechengtanchaung1 : MonoBehaviour
     public Transform parentCanvas;
     [Header("要合成的物种ID")]
     public int hechengID;
+    public bool islizi;
 
     private lizihechengData peifang;
     private int qianzhiID;
@@ -57,7 +58,7 @@ public class hechengtanchaung1 : MonoBehaviour
         //获取前置ID
         qianzhiID = peifang.Craft_Precursor_ID;
         //配方数据传给显示组件
-        display.SetRecipe(hechengID,peifang, qianzhiID );
+        display.SetPeifang(hechengID,peifang, qianzhiID );
      
 
     }

@@ -14,6 +14,8 @@ public class hechengAll : MonoBehaviour
     [Header("升级按钮")]
     public Button hechengshengji;
 
+    public bool islizi = true;
+
     private GameResourceManager resourceManager;
 
     public Slider amountSlider;
@@ -70,11 +72,12 @@ public class hechengAll : MonoBehaviour
 
 
 
-    public void SetRecipe(int id,lizihechengData recipe, int precursorId)
+    public void SetPeifang(int id,lizihechengData recipe, int precursorId,bool isliziType = true)
     {
         liziID = id;
         peifang = recipe;
         qianzhiID = precursorId;
+        islizi = isliziType;
 
         if (amountSlider != null)
         {
@@ -152,7 +155,7 @@ public class hechengAll : MonoBehaviour
     }
 
 
-    //合成按钮功能方法
+    //粒子合成按钮功能方法
     public void lizihechengClick()
     {
         //获取当前合成数量
@@ -161,11 +164,22 @@ public class hechengAll : MonoBehaviour
             Debug.LogError("无法解析合成数量");
             return;
         }
-        //调用合成方法
-        bool hechengsuccess = hechengManager.Instance.lizihecheng(liziID, hechengCount);
-        
-        
-        if (hechengsuccess)
+
+        if(hechengCount <= 0)
+        {
+            return;
+        }
+
+        //调用粒子合成方法
+        bool lizisuccess = false;
+        if (islizi)
+            lizisuccess = hechengManager.Instance.lizihecheng(liziID, hechengCount);
+        else
+            lizisuccess = hechengManager.Instance.chenaihecheng(liziID, hechengCount);
+
+
+
+        if (lizisuccess)
         {
             
             //resourceManager = GameResourceManager.Instance;
@@ -183,6 +197,7 @@ public class hechengAll : MonoBehaviour
         {
             Debug.Log("合成失败，资源不足");
         }
+
     }
 
 
