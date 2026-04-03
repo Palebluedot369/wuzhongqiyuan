@@ -21,7 +21,7 @@
     "ID": 3,
     "ResourceID": "C",
     "Name": "尘埃",
-    "InitialAmount": 0,
+    "InitialAmount": 100000,
     "UnlockCondition_Resource": "A",
     "UnlockCondition_Amount": 1000
   },

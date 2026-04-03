@@ -70,6 +70,7 @@ public class GameResourceManager : MonoBehaviour
     private Dictionary<int, chenaihechengData> chenaihechengDict = new Dictionary<int, chenaihechengData>();
     private Dictionary<int, lizishengjiData> lizishengjiDict = new Dictionary<int, lizishengjiData>();
     private Dictionary<int, chenaishengjiData> chenaishengjiDict = new Dictionary<int, chenaishengjiData>();
+    private Dictionary<int, leidianshengjiData> leidianshengjiDict = new Dictionary<int, leidianshengjiData>();
 
 
 
@@ -170,8 +171,21 @@ public class GameResourceManager : MonoBehaviour
                 chenaihechengDict[data.ID] = data;
             }
         }
-        
 
+        //加载雷电升级数据
+        TextAsset leidianshengjidatajson = Resources.Load<TextAsset>("meta/leidianshengji");
+        if (leidianshengjidatajson == null)
+        {
+            Debug.LogError("未找到leidianshengji.json");
+        }
+        else
+        {
+            var list = JsonUtility.FromJson<leidianShengJiList>(leidianshengjidatajson.text);
+            foreach (var data in list.leidianshengji)
+            {
+                leidianshengjiDict[data.ID] = data;
+            }
+        }
 
     }
 
@@ -258,7 +272,6 @@ public class GameResourceManager : MonoBehaviour
         }
     }
 
-
     //资源生产方法
     void ShengchanResources()
     {
@@ -316,7 +329,6 @@ public class GameResourceManager : MonoBehaviour
 
 
     }
-
 
     //各资源事件
     public event Action<double> leidianChange;//雷电数量事件
@@ -411,6 +423,14 @@ public class GameResourceManager : MonoBehaviour
     public int getchenaihechengLevel(int id) => chenaihechengLevel[id];//获取粒子合成等级
     public void setchenaihechengLevel(int id, int level) => chenaihechengLevel[id] = level;//粒子合成等级修改方法
     public chenaibaseData getchenaibaseData(int id) => chenaidataDict.ContainsKey(id) ? chenaidataDict[id] : null;
+    public leidianshengjiData gethundunUPData()
+    {
+        return leidianshengjiDict.ContainsKey(1) ? leidianshengjiDict[1] : null;//获取混沌升级方法
+    }
+    public leidianshengjiData getwuzhiUPData()
+    {
+        return leidianshengjiDict.ContainsKey(2) ? leidianshengjiDict[2] : null;//获取物质升级方法
+    }
 
 
 
@@ -419,6 +439,8 @@ public class GameResourceManager : MonoBehaviour
     public int getleidianAddLevel() => leidianAddLevel;
     public int getleidianPercentLevel() => leidianPercentLevel;
     public double getleidianCount() => leidiancount;
+    
+
 
     //雷电升级方法
     public void leidianshengjiAdd()
@@ -428,8 +450,16 @@ public class GameResourceManager : MonoBehaviour
             Debug.Log("雷电未解锁");
             return;
         }
+        //获取混沌升级配置
+        leidianshengjiData config = null;
+        if (leidianshengjiDict != null && leidianshengjiDict.ContainsKey(1))
+            config = leidianshengjiDict[1];
 
-        double cost = 10 * Math.Pow(10, leidianAddLevel);
+        //未获取到时使用硬编码配置
+        double firstCost = (config != null) ? config.Cost_firsttime : 10;
+        double multiplier = (config != null) ? config.Cost_Multiplier : 10;
+
+        double cost = firstCost * Math.Pow(multiplier, leidianAddLevel);
         if(lizicount >= cost)
         {
             lizicount -= cost;
@@ -448,7 +478,16 @@ public class GameResourceManager : MonoBehaviour
             Debug.Log("雷电未解锁");
             return;
         }
-        double cost = 1000 * Math.Pow(3, leidianPercentLevel);
+        //获取物质升级配置
+        leidianshengjiData config = null;
+        if (leidianshengjiDict != null && leidianshengjiDict.ContainsKey(2))
+            config = leidianshengjiDict[2];
+
+        //未获取到时使用硬编码配置
+        double firstCost = (config != null) ? config.Cost_firsttime : 1000;
+        double multiplier = (config != null) ? config.Cost_Multiplier : 3;
+
+        double cost = firstCost * Math.Pow(multiplier, leidianPercentLevel);
         if(chenaicount >= cost)
         {
             chenaicount -= cost;

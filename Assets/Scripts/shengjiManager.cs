@@ -8,7 +8,7 @@ public class shengjiManager : MonoBehaviour
     public static shengjiManager Instance;
     private GameResourceManager resourceManager;
     //粒子、尘埃物种升级数据字典
-    private Dictionary<int,lizishengjiData> lizishengjiDict = new Dictionary<int, lizishengjiData> ();
+    private Dictionary<int, lizishengjiData> lizishengjiDict = new Dictionary<int, lizishengjiData> ();
     private Dictionary<int, chenaishengjiData> chenaishengjiDict = new Dictionary<int, chenaishengjiData>();
 
     private void Awake()
@@ -76,7 +76,7 @@ public class shengjiManager : MonoBehaviour
         {
             Debug.LogError($"未找到物种 {liziID} 的升级配方");
             return false;
-        }       
+        }
         //当前生产等级和升级消耗计算
         int currentLevel = resourceManager.getlizishengjiLevel(liziID);
         double cost = peifang.Upgrade_Base_Cost * Math.Pow(peifang.Upgrade_Multiplier, currentLevel);

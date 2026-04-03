@@ -16,8 +16,8 @@
     "Name": "物质",
     "Type": "percent",
     "Cost_Resource": "B",
-    "Cost_firsttime": 10,
-    "Cost_Multiplier": 10,
+    "Cost_firsttime": 1000,
+    "Cost_Multiplier": 3,
     "Effect_Base": 0.1,
     "Effect_Multiplier": 1
   }
