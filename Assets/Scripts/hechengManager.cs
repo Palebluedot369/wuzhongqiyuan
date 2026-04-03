@@ -22,13 +22,6 @@ public class hechengManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         StartCoroutine(WaitForManager());
-        //resourceManager = GameResourceManager.Instance;
-        //if(resourceManager == null)
-        //{
-        //    Debug.LogError("resourceManager未找到");
-        //    return;
-        //}
-        //LoadHechengData();
     }
     private IEnumerator WaitForManager()
     {
@@ -53,7 +46,7 @@ public class hechengManager : MonoBehaviour
             foreach (var data in list.lizihecheng)
             {
                 lizihechengDict[data.ID] = data;
-                Debug.Log($"加载了 {lizihechengDict.Count} 个粒子合成配方");
+               // Debug.Log($"加载了 {lizihechengDict.Count} 个粒子合成配方");
             }
         }
         //加载尘埃合成数据
@@ -69,7 +62,7 @@ public class hechengManager : MonoBehaviour
             foreach (var data in list.chenaihecheng)
             {
                 chenaihechengDict[data.ID] = data;
-                Debug.Log($"加载了 {chenaihechengDict.Count} 个尘埃合成配方");
+              //  Debug.Log($"加载了 {chenaihechengDict.Count} 个尘埃合成配方");
             }
         }
 
@@ -85,9 +78,9 @@ public class hechengManager : MonoBehaviour
             return false;
         }
         //基础资源数量检查
-        if(resourceManager.getlizinumber() < peifang.Craft_A_Cost * hechengcount)
+        if(resourceManager.getlizinumber() < peifang.Craft_A_Cost )
             return false;
-        if(resourceManager.getleidianCount() < peifang.Craft_B_Cost * hechengcount)
+        if(resourceManager.getleidianCount() < peifang.Craft_B_Cost)
             return false;
 
         //检查前置物种
@@ -98,21 +91,25 @@ public class hechengManager : MonoBehaviour
                 return false;
         }
 
+
         //资源消耗
-        resourceManager.liziAdd(-peifang.Craft_A_Cost * hechengcount);
-        resourceManager.leidianAdd(-peifang.Craft_B_Cost * hechengcount);
+        double turecost = hechengcount / resourceManager.getlizihechengMultiplier(liziID);
+        resourceManager.liziAdd(-peifang.Craft_A_Cost * turecost);
+        resourceManager.leidianAdd(-peifang.Craft_B_Cost * turecost);
 
         if(peifang.Craft_Precursor_ID != 0)
         {
-            resourceManager.liziwuzhongAdd(peifang.Craft_Precursor_ID, -peifang.Craft_Precursor_Cost * hechengcount);
+            resourceManager.liziwuzhongAdd(peifang.Craft_Precursor_ID, -peifang.Craft_Precursor_Cost * turecost);
 
         }
-
         //合成产出
-        double output = peifang.Craft_Output * hechengcount * resourceManager.getlizihechengMultiplier(liziID);
+        double output = peifang.Craft_Output * hechengcount;
         resourceManager.liziwuzhongAdd(liziID, output);
         Debug.Log($"合成成功，获得 {output} 个 {peifang.Name}");
+
         return true;
+
+
 
     }
 
@@ -131,8 +128,9 @@ public class hechengManager : MonoBehaviour
         if(resourceManager.getleidianCount() <  peifang.Craft_B_Cost * hechengcount)
             return false;
         //资源消耗
-        resourceManager.liziAdd(-peifang.Craft_A_Cost * hechengcount);
-        resourceManager.leidianAdd(-peifang.Craft_B_Cost * hechengcount);
+        double truecost = hechengcount / resourceManager.getchenaihechengMultiplier(chenaiID,true);
+        resourceManager.liziAdd(-peifang.Craft_A_Cost * truecost);
+        resourceManager.leidianAdd(-peifang.Craft_B_Cost * truecost);
         //合成产出
         double output = peifang.Craft_Output * hechengcount * resourceManager.getchenaihechengMultiplier(chenaiID,true);
         resourceManager.chenaiwuzhongAdd(chenaiID,output);

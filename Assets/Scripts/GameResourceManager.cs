@@ -89,24 +89,14 @@ public class GameResourceManager : MonoBehaviour
             {
                 foreach (var data in list.lizidatas)
                     lizidataDict[data.ID] = data;
-                Debug.Log($"成功加载 {lizidataDict.Count} 个粒子物种基础数据");
+               // Debug.Log($"成功加载 {lizidataDict.Count} 个粒子物种基础数据");
             }
             else
             {
                 Debug.LogError("解析 lizi.json 失败");
             }
 
-
-            //foreach (var data in list.lizidatas)
-            //{
-            //    lizidataDict[data.ID] = data;
-            //}
         }
-
-
-
-
-
 
         //加载粒子升级数据
         TextAsset lizishengjidatajson = Resources.Load<TextAsset>("meta/lizishengji");
@@ -198,9 +188,6 @@ public class GameResourceManager : MonoBehaviour
             }
             lizihechengMultiplier[i] = 1;//赋值粒子物种基础合成效率
         }
-
-
-
 
 
         //初始化尘埃物种基础生产和合成效率
@@ -339,6 +326,8 @@ public class GameResourceManager : MonoBehaviour
     public event Action<double> anwuzhiChange;//暗物质数量事件
     public event Action<int, double> liziwuzhongChange;//粒子物种数量事件
     public event Action<int, double> chenaiwuzhongChange;//尘埃物种数量事件
+    public event Action<int, double> liziproductChange;//粒子物种生产效率事件
+    public event Action<int, double> chenaiproductChange;//粒子物种生产效率事件
     public event Action<int> OnliziUnlocked;//粒子物种解锁事件
     public event Action<int> OnchenaiUnlocked;//尘埃物种解锁事件
 
@@ -479,39 +468,48 @@ public class GameResourceManager : MonoBehaviour
     public void leidianAdd(double amount)
     {
         leidiancount += amount;
-        leidianChange?.Invoke(leidiancount);//触发事件
+        leidianChange?.Invoke(leidiancount);//雷电数量事件
     }
     public void liziAdd(double amount)
     {
         lizicount += amount;
-        liziChange?.Invoke(lizicount);//触发事件
+        liziChange?.Invoke(lizicount);//粒子数量事件
     }
     public void chenaiAdd(double amount)
     {
         chenaicount += amount;
-        chenaiChange?.Invoke(chenaicount);//触发事件
+        chenaiChange?.Invoke(chenaicount);//尘埃数量事件
     }
     public void zhihuiAdd(double amount)
     {
         zhihuicount += amount;
-        zhihuiChange?.Invoke(zhihuicount);//触发事件
+        zhihuiChange?.Invoke(zhihuicount);//智慧数量事件
     }
     public void anwuzhiAdd(double amount)
     {
         anwuzhicount += amount;
-        anwuzhiChange?.Invoke(anwuzhicount);//触发事件
+        anwuzhiChange?.Invoke(anwuzhicount);//暗物质数量事件
     }
     public void liziwuzhongAdd(int id,double amount)
     {
         liziSpecies[id] += amount;
-        liziwuzhongChange?.Invoke(id, liziSpecies[id]);
+        liziwuzhongChange?.Invoke(id, liziSpecies[id]);//粒子物种数量事件
     }
     public void chenaiwuzhongAdd(int id,double amount)
     {
         chenaiSpecies[id] += amount;
-        chenaiwuzhongChange?.Invoke(id, chenaiSpecies[id]);
+        chenaiwuzhongChange?.Invoke(id, chenaiSpecies[id]);//尘埃物种数量事件
     }
-
+    public void liziproductAdd(int id,double amount)
+    {
+        lizishengchanRates[id] = amount;
+        liziproductChange?.Invoke(id, lizishengchanRates[id]);//粒子物种生产效率事件
+    }
+    public void chenaiproductAdd(int id,double amount)
+    {
+        chenaishengchanRates[id] = amount;
+        chenaiproductChange?.Invoke(id, chenaishengchanRates[id]);//尘埃物种生产效率事件
+    }
 
 
 

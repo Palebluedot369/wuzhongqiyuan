@@ -45,7 +45,7 @@ public class shengjiManager : MonoBehaviour
             foreach(var data in list.lizishengji)
             {
                 lizishengjiDict[data.ID] = data;
-                Debug.Log($"加载了{lizishengjiDict.Count}个粒子升级配方");
+                //Debug.Log($"加载了{lizishengjiDict.Count}个粒子升级配方");
             }
 
         }
@@ -64,7 +64,7 @@ public class shengjiManager : MonoBehaviour
             foreach(var data in list.chenaishengji)
             {
                 chenaishengjiDict[data.ID] = data;
-                Debug.Log($"加载了{chenaishengjiDict.Count}个尘埃升级配方");
+                //Debug.Log($"加载了{chenaishengjiDict.Count}个尘埃升级配方");
             }
         }
     }
@@ -90,7 +90,8 @@ public class shengjiManager : MonoBehaviour
         resourceManager.liziwuzhongAdd(liziID , -cost);
         //刷新生产效率
         double newMult = resourceManager.getlizishengchanRate(liziID) * peifang.Upgrade_EffectMultiplier;
-        resourceManager.setlizishengchanRate (liziID , newMult);
+       // resourceManager.setlizishengchanRate (liziID , newMult);
+        resourceManager.liziproductAdd(liziID , newMult);
         //刷新生产等级
         resourceManager.setlizishengjiLevel(liziID, currentLevel + 1);
         Debug.Log($"成功升级生产效率，当前生产等级{currentLevel + 1}，当前生产效率{newMult}");
@@ -119,7 +120,8 @@ public class shengjiManager : MonoBehaviour
         resourceManager.liziAdd(-cost);
         //刷新生产效率
         double newMult = resourceManager.getchenaishengchanRate(chenaiID) * peifang.Upgrade_EffectMultiplier;
-        resourceManager.setchenaishengchanRate(chenaiID , newMult);
+        //resourceManager.setchenaishengchanRate(chenaiID , newMult);
+        resourceManager.chenaiproductAdd(chenaiID , newMult);
         //刷新生产等级
         resourceManager.setchenaishengjiLevel(chenaiID, currentLevel + 1);
         Debug.Log($"成功升级尘埃生产效率，当前等级{currentLevel + 1}，当前生产效率{newMult}");

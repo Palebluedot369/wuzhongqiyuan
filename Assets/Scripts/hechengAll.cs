@@ -89,9 +89,10 @@ public class hechengAll : MonoBehaviour
     //滑动条变动时调用计算并显示实际合成数量
     void OnSliderValueChange(float percent)
     {
+        resourceManager = GameResourceManager.Instance;
         double maxHechengcount = hechengMaxCalculate();
         double hechengCount = Math.Floor(maxHechengcount * percent);
-        string hechengStr = formatNum(hechengCount);
+        string hechengStr = formatNum(resourceManager.getlizihechengMultiplier(liziID) * hechengCount);
         string text = $"合成：{hechengStr}";
         hechengNum.text = text;
         updateCostInfo(hechengCount);
@@ -164,7 +165,6 @@ public class hechengAll : MonoBehaviour
             Debug.LogError("无法解析合成数量");
             return;
         }
-
         if(hechengCount <= 0)
         {
             return;
@@ -176,8 +176,6 @@ public class hechengAll : MonoBehaviour
             lizisuccess = hechengManager.Instance.lizihecheng(liziID, hechengCount);
         else
             lizisuccess = hechengManager.Instance.chenaihecheng(liziID, hechengCount);
-
-
 
         if (lizisuccess)
         {
@@ -198,10 +196,6 @@ public class hechengAll : MonoBehaviour
             Debug.Log("合成失败，资源不足");
         }
 
-    }
-
-
-
-    
+    }    
 
 }

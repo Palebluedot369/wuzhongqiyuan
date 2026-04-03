@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class liziPanel : MonoBehaviour
@@ -12,6 +13,8 @@ public class liziPanel : MonoBehaviour
     public TextMeshProUGUI nameText;
     [Header("数量")]
     public TextMeshProUGUI numText;
+    [Header("生产效率")]
+    public TextMeshProUGUI productText;
     [Header("合成按钮")]
     public Button hechengBTN;
     [Header("升级按钮")]
@@ -50,15 +53,20 @@ public class liziPanel : MonoBehaviour
 
     }
 
-    //订阅物种数量事件
+    //订阅物种数量、生产效率事件
     private void OnEnable()
     {
         
         if (resourceManager != null)
         {
             resourceManager.liziwuzhongChange += OnliziCountChanged;
+        }
+        if(resourceManager != null)
+        {
+            resourceManager.liziproductChange += OnliziproductChanged;
+        }
 
-        }        
+
     }
     private void OnDisable()
     {
@@ -67,6 +75,10 @@ public class liziPanel : MonoBehaviour
         {
             resourceManager.liziwuzhongChange -= OnliziCountChanged;
 
+        }
+        if (resourceManager != null)
+        {
+            resourceManager.liziproductChange -= OnliziproductChanged;
         }
     }
 
@@ -88,7 +100,10 @@ public class liziPanel : MonoBehaviour
             nameText.text = $"物种ID{liziID}";
         //获取数量
         double count = resourceManager.getOtherlizinumber(liziID);
-        numText.text = formatNum(count);
+        numText.text = "数量：" + formatNum(count);
+        //获取生产效率
+        double product = resourceManager.getlizishengchanRate(liziID);        
+        productText.text = "生产：" + formatNum(product);
 
         //绑定按钮事件
         shengjiBTN.onClick.RemoveAllListeners();
@@ -101,8 +116,14 @@ public class liziPanel : MonoBehaviour
     private void OnliziCountChanged(int id,double count)
     {
         if (id == liziID)
-            numText.text = formatNum(count);
+            numText.text = "数量：" + formatNum(count);
 
+    }
+    //粒子生产效率改变事件
+    private void OnliziproductChanged(int id,double count)
+    {
+        if (id == liziID)
+            productText.text = "生产：" + formatNum(count);
     }
     //生产效率升级按钮点击
     private void OnshengjiClick()
@@ -111,6 +132,7 @@ public class liziPanel : MonoBehaviour
             shengjiManager.Instance.lizishengji(liziID);
         else
             Debug.LogError("升级管理器未找到");
+        
     }
     //合成按钮点击,打开大弹窗
     private void OnhechengClick()
@@ -126,20 +148,6 @@ public class liziPanel : MonoBehaviour
             Debug.LogError("未找到父 Canvas，无法实例化弹窗");
             return;
         }
-
-
-        ////动态查找canvas  
-        //Transform parent = cachedCanvasParent;             
-        //if (parent == null)
-        //{
-        //    Canvas canvas = FindObjectOfType<Canvas>();
-        //    if (canvas == null)
-        //    {
-        //        Debug.LogError("场景中没有找到 Canvas");
-        //        return;
-        //    }
-        //    parent = canvas.transform;
-        //}
 
         //实例化弹窗
         GameObject tanchuang = Instantiate(hechengtanchuang, cachedCanvasParent);

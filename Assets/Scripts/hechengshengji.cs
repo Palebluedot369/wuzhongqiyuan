@@ -82,8 +82,6 @@ public class hechengshengji : MonoBehaviour
                 costliziName = liziData.Name;
             }
 
-
-
             costliziName = liziData != null ? liziData.Name : "未知物种";
         }
         
@@ -115,11 +113,24 @@ public class hechengshengji : MonoBehaviour
 
     void OnUpgradeClick()
     {
-        if(resourceManager == null) return;
+        if(resourceManager == null)
+        {
+            Debug.LogError("resourceManager 未找到");
+            return;
+        }
 
         //调用资源管理器合成升级方法
-        
-    }
+        bool success = hechengManager.Instance.lizihechengshengjiLevel(liziID);
+        if (success)
+        {
+            Debug.Log($"物种{liziID}合成等级升级成功");
+            tanchuangClose();
+        }
+        else
+        {
+            Debug.Log("升级失败，资源不足或已达最高等级");
+        }
+        }
 
     void tanchuangClose()
     {
