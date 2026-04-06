@@ -287,7 +287,7 @@ public class GameResourceManager : MonoBehaviour
         {
             double totalRate = leidianBaseRate + leidianAddLevel;
             totalRate *= Math.Pow(1.1, leidianPercentLevel);
-            Debug.Log($"当前雷电产量{totalRate}");
+            //Debug.Log($"当前雷电产量{totalRate}");
             leidianAdd(totalRate);
         }
 

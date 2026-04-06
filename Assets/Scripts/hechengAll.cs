@@ -174,8 +174,6 @@ public class hechengAll : MonoBehaviour
         bool lizisuccess = false;
         if (islizi)
             lizisuccess = hechengManager.Instance.lizihecheng(liziID, hechengCount);
-        else
-            lizisuccess = hechengManager.Instance.chenaihecheng(liziID, hechengCount);
 
         if (lizisuccess)
         {

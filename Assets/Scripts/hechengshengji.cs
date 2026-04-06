@@ -106,7 +106,7 @@ public class hechengshengji : MonoBehaviour
         if(costliziID == 0)
         {
             shengjiButton.interactable = false;
-            hechengCost.text = "已达到最高等级";
+            hechengCost.text = "无法升级";
         }
 
     }

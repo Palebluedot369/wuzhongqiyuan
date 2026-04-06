@@ -77,10 +77,11 @@ public class hechengManager : MonoBehaviour
             Debug.LogError($"未找到物种 {liziID} 的合成配方");
             return false;
         }
+        double turecost = hechengcount / resourceManager.getlizihechengMultiplier(liziID);
         //基础资源数量检查
-        if(resourceManager.getlizinumber() < peifang.Craft_A_Cost )
+        if (resourceManager.getlizinumber() < peifang.Craft_A_Cost * turecost)
             return false;
-        if(resourceManager.getleidianCount() < peifang.Craft_B_Cost)
+        if(resourceManager.getleidianCount() < peifang.Craft_B_Cost * turecost)
             return false;
 
         //检查前置物种
@@ -93,7 +94,7 @@ public class hechengManager : MonoBehaviour
 
 
         //资源消耗
-        double turecost = hechengcount / resourceManager.getlizihechengMultiplier(liziID);
+        
         resourceManager.liziAdd(-peifang.Craft_A_Cost * turecost);
         resourceManager.leidianAdd(-peifang.Craft_B_Cost * turecost);
 
@@ -116,23 +117,24 @@ public class hechengManager : MonoBehaviour
     //尘埃合成
     public bool chenaihecheng(int chenaiID,double hechengcount)
     {
+        double truecost = hechengcount / resourceManager.getchenaihechengMultiplier(chenaiID, true);
         //配方检查
-        if(!chenaihechengDict.TryGetValue(chenaiID,out var peifang))
+        if (!chenaihechengDict.TryGetValue(chenaiID,out var peifang))
         {
             Debug.LogError($"未找到尘埃 {chenaiID} 的合成配方");
             return false;
         }
         //基础资源检查
-        if(resourceManager.getlizinumber() < peifang.Craft_A_Cost * hechengcount)
+        if(resourceManager.getlizinumber() < peifang.Craft_A_Cost * truecost)
             return false;
-        if(resourceManager.getleidianCount() <  peifang.Craft_B_Cost * hechengcount)
+        if(resourceManager.getleidianCount() <  peifang.Craft_B_Cost * truecost)
             return false;
         //资源消耗
-        double truecost = hechengcount / resourceManager.getchenaihechengMultiplier(chenaiID,true);
+        
         resourceManager.liziAdd(-peifang.Craft_A_Cost * truecost);
         resourceManager.leidianAdd(-peifang.Craft_B_Cost * truecost);
         //合成产出
-        double output = peifang.Craft_Output * hechengcount * resourceManager.getchenaihechengMultiplier(chenaiID,true);
+        double output = peifang.Craft_Output * hechengcount;
         resourceManager.chenaiwuzhongAdd(chenaiID,output);
         Debug.Log($"合成成功，获得 {output} 个 {peifang.Name}");
         return true;
