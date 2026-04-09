@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.automated-testing": "0.8.1-preview.2",
     "com.unity.collab-proxy": "2.12.4",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.7",

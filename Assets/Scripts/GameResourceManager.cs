@@ -433,15 +433,11 @@ public class GameResourceManager : MonoBehaviour
     }
 
 
-
-
     //雷电数据相关公共方法
     public int getleidianAddLevel() => leidianAddLevel;
     public int getleidianPercentLevel() => leidianPercentLevel;
     public double getleidianCount() => leidiancount;
     
-
-
     //雷电升级方法
     public void leidianshengjiAdd()
     {
@@ -501,8 +497,6 @@ public class GameResourceManager : MonoBehaviour
 
     }
 
-
-
     //各资源增加方法
     public void leidianAdd(double amount)
     {
@@ -551,6 +545,98 @@ public class GameResourceManager : MonoBehaviour
     }
 
 
+    //获取当前数据以保存
+    public SaveData GetSaveData()
+    {
+        SaveData data = new SaveData();
+        data.lizicount = this.lizicount;
+        data.leidiancount = this.leidiancount;
+        data.chenaicount = this.chenaicount;
+        data.zhihuicount = this.zhihuicount;
+        data.anwuzhicount = this.anwuzhicount;
+
+        data.liziSpecies = (double[])this.liziSpecies.Clone();
+        data.chenaiSpecies = (double[])this.chenaiSpecies.Clone();
+        data.lizishengchanRates = (double[])this.lizishengchanRates.Clone();
+        data.chenaishengchanRates = (double[])this.chenaishengchanRates.Clone();
+        data.lizihechengMultiplier = (double[])this.lizihechengMultiplier.Clone();
+        data.chenaihechengMultiplier = (double[])this.chenaihechengMultiplier.Clone();
+        data.lizishengjiLevel = (int[])this.lizishengjiLevel.Clone();
+        data.chenaishengjiLevel = (int[])this.chenaishengjiLevel.Clone();
+        data.lizihechengLevel = (int[])this.lizihechengLevel.Clone();
+        data.chenaihechengLevel = (int[])this.chenaihechengLevel.Clone();
+
+        data.leidianshengchanRate = this.leidianshengchanRate;
+        data.isleidianUnlocked = this.isleidianUnlocked;
+        data.leidianBaseRate = this.leidianBaseRate;
+        data.leidianpercentBonus = this.leidianpercentBonus;
+        data.leidianAddLevel = this.leidianAddLevel;
+        data.leidianPercentLevel = this.leidianPercentLevel;
+
+        return data;
+    }
+
+    // 从存档数据恢复状态
+    public void LoadFromSaveData(SaveData data)
+    {
+        this.lizicount = data.lizicount;
+        this.leidiancount = data.leidiancount;
+        this.chenaicount = data.chenaicount;
+        this.zhihuicount = data.zhihuicount;
+        this.anwuzhicount = data.anwuzhicount;
+
+        // 物种数据拷贝
+        if (data.liziSpecies != null && data.liziSpecies.Length == liziSpecies.Length)
+            Array.Copy(data.liziSpecies, liziSpecies, liziSpecies.Length);
+        if (data.chenaiSpecies != null && data.chenaiSpecies.Length == chenaiSpecies.Length)
+            Array.Copy(data.chenaiSpecies, chenaiSpecies, chenaiSpecies.Length);
+        // 物种生产效率拷贝
+        if (data.lizishengchanRates != null && data.lizishengchanRates.Length == lizishengchanRates.Length)
+            Array.Copy(data.lizishengchanRates, lizishengchanRates, lizishengchanRates.Length);
+        if (data.chenaishengchanRates != null && data.chenaishengchanRates.Length == chenaishengchanRates.Length)
+            Array.Copy(data.chenaishengchanRates, chenaishengchanRates, chenaishengchanRates.Length);
+        // 物种合成效率拷贝
+        if (data.lizihechengMultiplier != null && data.lizihechengMultiplier.Length == lizihechengMultiplier.Length)
+            Array.Copy(data.lizihechengMultiplier, lizihechengMultiplier, lizihechengMultiplier.Length);
+        if (data.chenaihechengMultiplier != null && data.chenaihechengMultiplier.Length == chenaihechengMultiplier.Length)
+            Array.Copy(data.chenaihechengMultiplier, chenaihechengMultiplier, chenaihechengMultiplier.Length);
+        // 物种生产等级拷贝        
+        if (data.lizishengjiLevel != null && data.lizishengjiLevel.Length == lizishengjiLevel.Length)
+            Array.Copy(data.lizishengjiLevel, lizishengjiLevel, lizishengjiLevel.Length);
+        if (data.chenaishengjiLevel != null && data.chenaishengjiLevel.Length == chenaishengjiLevel.Length)
+            Array.Copy(data.chenaishengjiLevel, chenaishengjiLevel, chenaishengjiLevel.Length);
+        // 物种合成等级拷贝       
+        if (data.lizihechengLevel != null && data.lizihechengLevel.Length == lizihechengLevel.Length)
+            Array.Copy(data.lizihechengLevel, lizihechengLevel, lizihechengLevel.Length);
+        if (data.chenaihechengLevel != null && data.chenaihechengLevel.Length == chenaihechengLevel.Length)
+            Array.Copy(data.chenaihechengLevel, chenaihechengLevel, chenaihechengLevel.Length);
+
+        this.leidianshengchanRate = data.leidianshengchanRate;
+        this.isleidianUnlocked = data.isleidianUnlocked;
+        this.leidianBaseRate = data.leidianBaseRate;
+        this.leidianpercentBonus = data.leidianpercentBonus;
+        this.leidianAddLevel = data.leidianAddLevel;
+        this.leidianPercentLevel = data.leidianPercentLevel;
+
+        // 触发所有相关事件，刷新 UI
+        liziChange?.Invoke(lizicount);
+        leidianChange?.Invoke(leidiancount);
+        chenaiChange?.Invoke(chenaicount);
+        zhihuiChange?.Invoke(zhihuicount);
+        anwuzhiChange?.Invoke(anwuzhicount);
+        for (int i = 1; i <= 21; i++)
+            liziwuzhongChange?.Invoke(i, liziSpecies[i]);
+        for (int i = 1; i <= 11; i++)
+            chenaiwuzhongChange?.Invoke(i, chenaiSpecies[i]);
+        // 生产效率变化事件（如果有）
+        for (int i = 1; i <= 21; i++)
+            liziproductChange?.Invoke(i, lizishengchanRates[i]);
+        for (int i = 1; i <= 11; i++)
+            chenaiproductChange?.Invoke(i, chenaishengchanRates[i]);
+    }
+
+
+
 
     //void printlog()
     //{
@@ -561,12 +647,25 @@ public class GameResourceManager : MonoBehaviour
 
     void Start()
     {
+        //Instance = this;
+        //LoadAllData();
+        //InitFromData();
+        //SaveLoadManager sl = GetComponent<SaveLoadManager>();
+        //if (sl != null) sl.LoadGame();
+        //StartCoroutine(ShengchanCoroutine());
+        ////InvokeRepeating("printlog",0,1);
         Instance = this;
         LoadAllData();
-        InitFromData();
+        InitFromData();  // 加载 JSON 初始值（粒子10、雷电0等）
+
+        // 尝试加载存档，如果存在则覆盖初始值
+        if (SaveLoadManager.Instance != null)
+            SaveLoadManager.Instance.LoadGame();
+        else
+            Debug.LogWarning("SaveLoadManager 未找到，无法加载存档");
+
+
         StartCoroutine(ShengchanCoroutine());
-        //InvokeRepeating("printlog",0,1);
-        
 
 
 
