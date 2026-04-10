@@ -12,7 +12,7 @@ public class GameResourceManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("GameResourceManager Awake Ö´ÐÐ");
+        //Debug.Log("GameResourceManager Awake Ö´ÐÐ");
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
