@@ -208,6 +208,7 @@ MonoBehaviour:
   hechengshengjiPrefab: {fileID: 8193874943873130832, guid: a7acb3cc0a6460e438adbd299f7ca9ed, type: 3}
   canvasParent: {fileID: 0}
   hechengshengji: {fileID: 3377417913451114148}
+  islizi: 1
   amountSlider: {fileID: 5029441927082301299}
   hechengNum: {fileID: 3960305613936594298}
   xiaohaoNum: {fileID: 5251856594960323972}
@@ -378,10 +379,10 @@ RectTransform:
   - {fileID: 5088821731135104575}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4613838871023624848
 MonoBehaviour:

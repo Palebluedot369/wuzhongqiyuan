@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
-using UnityEngine.Networking; 
-using UnityEngine.UI;
 using System;
 
 public class GameResourceManager : MonoBehaviour
 {
     public static GameResourceManager Instance { get; private set; }
+   // public bool IsDataLoaded { get; private set; }
 
     private void Awake()
     {
@@ -657,12 +655,12 @@ public class GameResourceManager : MonoBehaviour
         Instance = this;
         LoadAllData();
         InitFromData();  // 加载 JSON 初始值（粒子10、雷电0等）
-
+        //IsDataLoaded = true;
         // 尝试加载存档，如果存在则覆盖初始值
-        if (SaveLoadManager.Instance != null)
-            SaveLoadManager.Instance.LoadGame();
-        else
-            Debug.LogWarning("SaveLoadManager 未找到，无法加载存档");
+        //if (SaveLoadManager.Instance != null)
+        //    SaveLoadManager.Instance.LoadGame();
+        //else
+        //    Debug.LogWarning("SaveLoadManager 未找到，无法加载存档");
 
 
         StartCoroutine(ShengchanCoroutine());
