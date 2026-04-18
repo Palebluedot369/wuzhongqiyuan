@@ -18,14 +18,19 @@ jobs:
         with:
           lfs: true
 
+      - name: Cache Library
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-Android-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-Android-
+
       - name: Decode Keystore
         run: echo "${{ secrets.UNITY_KEYSTORE_BASE64 }}" | base64 -d > ./user.keystore
 
       - name: Build project
         uses: game-ci/unity-builder@v4
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
         with:
           targetPlatform: Android
           androidKeystoreName: ./user.keystore
