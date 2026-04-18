@@ -37,9 +37,8 @@ jobs:
           androidKeystorePass: ${{ secrets.UNITY_KEYSTORE_PASS }}
           androidKeyaliasName: ${{ secrets.UNITY_KEY_ALIAS }}
           androidKeyaliasPass: ${{ secrets.UNITY_KEY_PASS }}
-          androidAppBundle: false    # 如果你想生成 .aab 文件，改为 true
           buildName: wuzhongqiyuan         # 自定义 APK 名称
-          versioning: Semantic
+          versioning: 1.0.0
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
