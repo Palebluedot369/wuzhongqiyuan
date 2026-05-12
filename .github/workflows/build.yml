@@ -38,7 +38,7 @@ jobs:
           androidKeyaliasName: ${{ secrets.UNITY_KEY_ALIAS }}
           androidKeyaliasPass: ${{ secrets.UNITY_KEY_PASS }}
           buildName: wuzhongqiyuan         # 自定义 APK 名称
-          versioning: 1.0.0
+          versioning: Semantic
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
